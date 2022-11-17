@@ -1,1 +1,0 @@
-# -ru.javarush.golf.quest
