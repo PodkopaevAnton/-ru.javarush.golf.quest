@@ -1,1 +1,1 @@
-# -ru.javarush.golf.quest
+# ru.javarush.golf.quest
