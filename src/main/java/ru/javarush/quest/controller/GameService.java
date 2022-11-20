@@ -12,8 +12,6 @@ public class GameService {
     private final QuestionRepository questionRepository = new QuestionRepository();
     private final AnswerRepository answerRepository = new AnswerRepository();
 
-    public GameService() {
-    }
     public String getQuestionById(int id){
         return questionRepository.getQuestions().stream()
                 .filter(question -> question.getId()==id).findFirst().map(Question::getText).orElseThrow(RuntimeException::new);

@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
   <title></title>
@@ -17,7 +18,6 @@
 </style>
 <body>
 <div class="container text-center" >
-  <%--        <div class="shadow-lg p-3 mb-5 bg-body rounded">--%>
   <div class="row-align-items-center">
     <div class = "col-9"></div>
     <br><br>
@@ -38,7 +38,6 @@
     </form>
   </div>
 </div>
-<%--        </div>--%>
 <section class="info">
   <table class="table">
     <thead>
