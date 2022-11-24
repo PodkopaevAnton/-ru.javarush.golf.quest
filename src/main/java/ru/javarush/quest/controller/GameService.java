@@ -9,15 +9,14 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class GameService {
-    private final QuestionRepository questionRepository = new QuestionRepository();
-    private final AnswerRepository answerRepository = new AnswerRepository();
 
-    public String getQuestionById(int id){
+
+    public String getQuestionById(QuestionRepository questionRepository, int id){
         return questionRepository.getQuestions().stream()
                 .filter(question -> question.getId()==id).findFirst().map(Question::getText).orElseThrow(RuntimeException::new);
     }
 
-    public Map<String,Integer> getAnswersById(int id){
+    public Map<String,Integer> getAnswersById(AnswerRepository answerRepository, int id){
 
         return  answerRepository.getAnswersById(id).isEmpty() ? null :
                 answerRepository.getAnswers().entrySet().stream()

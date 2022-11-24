@@ -32,7 +32,7 @@
       <p>
 
       <div class="d-grid gap-2 col-6 mx-auto">
-        <button type="submit" class="btn btn-warning">${answers == null ? "Заново" :"Выбрать"}</button>
+        <button type="submit" class="btn btn-warning" >${answers == null ? "Заново" :"Выбрать"}</button>
       </div>
       </p>
     </form>

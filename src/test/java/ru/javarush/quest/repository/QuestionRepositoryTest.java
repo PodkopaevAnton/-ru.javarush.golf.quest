@@ -1,18 +1,18 @@
 package ru.javarush.quest.repository;
 
 import org.junit.jupiter.api.Test;
-
-import java.lang.reflect.Field;
+import org.mockito.Mockito;
+import ru.javarush.quest.entity.Question;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class QuestionRepositoryTest {
-    QuestionRepository questionRepository = new QuestionRepository();
 
     @Test
-    void checkQuestionsList() throws IllegalAccessException, NoSuchFieldException {
-        Field field = QuestionRepository.class.getDeclaredField("questions");
-        field.setAccessible(true);
-        assertEquals(field.get(questionRepository),questionRepository.getQuestions());
+    void checkQuestionsList(){
+        List<Question> questionsList = List.of(new Question(1,"Обернувшись,ты увидел своего друга. Показать ему свою находку?"),(new Question(4,"Ты стал частью братства. Ваш путь очень опасен. По какой дороге вы хотите идти?")));
+        QuestionRepository questionRepository = Mockito.spy(new QuestionRepository(questionsList));
+        assertEquals(questionsList,questionRepository.getQuestions());
     }
 }
