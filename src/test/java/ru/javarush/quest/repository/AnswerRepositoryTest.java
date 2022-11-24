@@ -1,11 +1,12 @@
 package ru.javarush.quest.repository;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 import ru.javarush.quest.entity.Answer;
 
-
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +15,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class AnswerRepositoryTest {
 
 
+    @Test
+    void checkConstructorWithNullForExceptionAndMessage(){
+        assertThrows(IllegalArgumentException.class,
+                ()->{
+                    new AnswerRepository(null);
+                });
+    }
+    @Test
+    void checkConstructorWithEmptyForExceptionAndMessage(){
+        assertThrows(IllegalArgumentException.class,
+                ()->{
+                    new AnswerRepository(new HashMap<>());
+                });
+    }
 
     @ParameterizedTest
     @ValueSource(ints = { 1, 2, 3 })

@@ -3,11 +3,30 @@ package ru.javarush.quest.repository;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import ru.javarush.quest.entity.Question;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class QuestionRepositoryTest {
+
+    @Test
+    void checkConstructorWithNullForExceptionAndMessage(){
+        assertThrows(IllegalArgumentException.class,
+                ()->{
+                    new QuestionRepository(null);
+                });
+    }
+
+    @Test
+    void checkConstructorWithEmptyListForExceptionAndMessage(){
+        assertThrows(IllegalArgumentException.class,
+                ()->{
+                    new QuestionRepository(new ArrayList<>());
+                });
+    }
+
 
     @Test
     void checkQuestionsList(){

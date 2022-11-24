@@ -10,8 +10,6 @@ import ru.javarush.quest.entity.Answer;
 import ru.javarush.quest.entity.Question;
 import ru.javarush.quest.repository.AnswerRepository;
 import ru.javarush.quest.repository.QuestionRepository;
-
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -53,9 +51,13 @@ class GameServiceTest {
 
     @Test
     void getNullForGetAnswersById() {
+        int id = 1;
+        Answer rightAnswer1 = new Answer(id, "answer1", 0);
+        Answer rightAnswer2 = new Answer(id, "answer2", 1);
+        Map<Integer,Answer> integerAnswerMap= Map.of(1,rightAnswer1,2,rightAnswer2);
         GameService gameService = Mockito.spy(new GameService());
-        AnswerRepository answerRepository = new AnswerRepository(new HashMap<>());
-        assertNull(gameService.getAnswersById(answerRepository,1));
+        AnswerRepository answerRepository = new AnswerRepository(integerAnswerMap);
+        assertNull(gameService.getAnswersById(answerRepository,id+1));
     }
 
     @ParameterizedTest
